@@ -1,7 +1,7 @@
 package sef.module4.activity;
 
 /**
- * This class represents a playing card 
+ * This class represents a playing card
  * 
  * @author John Doe
  *
@@ -48,7 +48,8 @@ public class PlayingCard {
 	
 	
 	//TODO #1: Write an instance variables that will handle the Integer value of number and suit.   
-	
+	private Integer number;
+	private Integer suit;
 	//END TODO #1
 	
 	
@@ -57,11 +58,16 @@ public class PlayingCard {
 		//TODO #2: Write code that will filter number and suit with the range provided above.
 		// Assign the number and suit argument to instance variable respectively
 		// If the arguments were not filter, make a code that will assign instance variables to a JOKER value
-		
-		//END TODO #2
-		
-	
+		if (number >= ACE && number <= KING && suit >= CLUBS && suit <= SPADES) {
+			this.suit = suit;
+			this.number = number;
+		} else {
+			this.suit = JOKER;
+			this.number = JOKER;
 		}
+		//END TODO #2
+
+	}
 			
 	
 	/**
@@ -72,12 +78,9 @@ public class PlayingCard {
 
 		//TODO #3: Make an instance of JOKER playing card
 		// Assign instance variable to a JOKER value
-		
+		suit = JOKER;
+		number = JOKER;
 		//END TODO #3
-		
-		
-		
-		
 	}
 
 	/**
@@ -89,8 +92,10 @@ public class PlayingCard {
 	public int getNumber() {
 		
 		//TODO #4: Return the Integer value of the playing card
-		// Return the value of current value of the number 
-		
+		// Return the value of current value of the number
+		if (number >= ACE && number <= KING) {
+			return number;
+		}
 		//END TODO #4
 	
 		return 0;
@@ -107,7 +112,9 @@ public class PlayingCard {
 
 		//TODO #5: Return the Integer value of the playing card
 		// Return the value of current value of the suit 
-		
+		if (suit >= CLUBS && suit <= SPADES) {
+			return suit;
+		}
 		//END TODO #5
 
 		return 0;
@@ -125,9 +132,76 @@ public class PlayingCard {
 		//TODO #6: Make a code that will convert the Integer value of number and suit into String.
 		// Return the String value of the current number and suit into a format "number of suit" 
 		// Provide single space between number-of and of-suit.
-		// It will be easier if a switch-case statement is use in the code. 
+		// It will be easier if a switch-case statement is use in the code.
 		// Make a code that will return the String value of JOKER if the default value was chosen
-		
+
+		if (number > 0 && suit > 0) {
+			String stringNumber = "";
+			String stringSuit = "";
+
+			switch (number) {
+				case ACE:
+					stringNumber = "ACE";
+					break;
+				case TWO:
+					stringNumber = "TWO";
+					break;
+				case THREE:
+					stringNumber = "THREE";
+					break;
+				case FOUR:
+					stringNumber = "FOUR";
+					break;
+				case FIVE:
+					stringNumber = "FIVE";
+					break;
+				case SIX:
+					stringNumber = "SIX";
+					break;
+				case SEVEN:
+					stringNumber = "SEVEN";
+					break;
+				case EIGHT:
+					stringNumber = "EIGHT";
+					break;
+				case NINE:
+					stringNumber = "NINE";
+					break;
+				case TEN:
+					stringNumber = "TEN";
+					break;
+				case JACK:
+					stringNumber = "JACK";
+					break;
+				case QUEEN:
+					stringNumber = "QUEEN";
+					break;
+				case KING:
+					stringNumber = "KING";
+					break;
+			}
+
+			switch (suit){
+				case CLUBS:
+					stringSuit = "CLUBS";
+					break;
+				case DIAMONDS:
+					stringSuit = "DIAMONDS";
+					break;
+				case HEARTS:
+					stringSuit = "HEARTS";
+					break;
+				case SPADES:
+					stringSuit = "SPADES";
+					break;
+			}
+
+			return stringNumber + " of " + stringSuit;
+		}
+
+		if (number == 0 && suit == 0) {
+			return "JOKER";
+		}
 		//END TODO #6
 		
 		return "";
