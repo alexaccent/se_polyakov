@@ -2,6 +2,8 @@ package sef.module7.activity;
 
 import java.util.Calendar;
 
+import static java.lang.Float.compare;
+
 /**
  * Represents an implementation of the Currency interface.  The equality test for
  * this currency implementation requires that the value and the name of the denomination
@@ -34,21 +36,23 @@ public class CurrencyImpl implements Currency {
 	 * @see sef.module6.activity.Currency#getValue()
 	 */
 	public float getValue() {
-		return 1;
+		return value;
 	}
 
 	/* (non-Javadoc)
 	 * @see sef.module6.activity.Currency#getDenomination()
 	 */
 	public Denomination getDenomination() {
-		return null;
+
+		return denomination;
 	}
 
 	/* (non-Javadoc)
 	 * @see sef.module6.activity.Currency#getCreateDate()
 	 */
 	public Calendar getCreateDate() {
-		return null;
+
+		return Calendar.getInstance();
 	}
 
 	/* (non-Javadoc)
@@ -63,7 +67,15 @@ public class CurrencyImpl implements Currency {
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object o) {
-		
+
+		if(o instanceof Currency) {
+			if (this.getDenomination().equals(((Currency) o).getDenomination())
+					&& Math.abs(this.getValue() - ((Currency) o).getValue()) <  0.00000001) {
+
+				return true;
+			}
+		}
+
 		return false;
 	}
 
