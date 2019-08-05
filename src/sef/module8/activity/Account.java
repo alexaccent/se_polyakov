@@ -10,7 +10,7 @@ package sef.module8.activity;
  */
 public class Account {
 
-
+	private String name;
 
 	/**
 	 * Creates an Account object with the specified name.  If the accout name
@@ -20,9 +20,15 @@ public class Account {
 	 * @throws AccountException
 	 */
 	public  Account(String accountName) throws AccountException{
-			
-			
-			
+		name = accountName;
+
+		if (accountName.length() < 4) {
+			throw new AccountException("Name must be longer than 4 characters", accountName);
+		}
+
+		if (name.length() < 4 && !name.matches("[a-zA-Z0-9]")) {
+			throw new AccountException("Name must contain a combination of letters and numbers", accountName);
+		}
 	}
 	
 	
@@ -32,6 +38,7 @@ public class Account {
 	 * @return the account name
 	 */
 	public String getName(){
-		return "";
+
+		return name;
 	}
 }
