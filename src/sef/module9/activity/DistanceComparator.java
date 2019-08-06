@@ -18,7 +18,13 @@ public class DistanceComparator implements Comparator<RadarContact>{
 	 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
 	 */
 	public int compare(RadarContact c1, RadarContact c2) {
-		
+
+		if (c1.getDistance() < c2.getDistance()) {
+			return -1;
+		} else if (c1.getDistance() == c2.getDistance()) {
+			return 0;
+		}
+
 		return 1;
 	}
 }
