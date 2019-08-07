@@ -2,6 +2,7 @@ package sef.module13.activity;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.List;
 
 import oracle.jdbc.driver.OracleDriver;
@@ -45,6 +46,8 @@ import junit.framework.TestCase;
 		catch (AccountDAOException e) {
 			// TODO Auto-generated catch block
 			fail();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 	
@@ -69,6 +72,8 @@ import junit.framework.TestCase;
 		}catch(AssertionFailedError e){
 			logger.error(sef.module.percentage.Percentage.setFailedCount(1, e.getMessage()));
 			fail();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 	
@@ -84,6 +89,8 @@ import junit.framework.TestCase;
 		}catch(AssertionFailedError e){
 			logger.error(sef.module.percentage.Percentage.setFailedCount(1, e.getMessage()));
 			fail();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 
 	}

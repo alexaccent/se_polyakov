@@ -7,7 +7,7 @@ public class AccountImpl implements Account{
 	private String lastName;
 	private String email;
 	
-	public AccountImpl(int id, String firstName, String lastName, String email){
+	public AccountImpl(int id, String firstName, String lastName, String email) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;

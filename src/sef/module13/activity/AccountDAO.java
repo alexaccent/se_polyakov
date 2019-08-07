@@ -1,5 +1,6 @@
 package sef.module13.activity;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface AccountDAO {
@@ -15,7 +16,7 @@ public interface AccountDAO {
 	 * 
 	 * @throws AccountDAOException when a problem occurs during search
 	 */
-	public List<Account> findAccount(String firstName, String lastName) throws AccountDAOException;
+	public List<Account> findAccount(String firstName, String lastName) throws AccountDAOException, SQLException;
 	
 	
 	/**
@@ -26,7 +27,7 @@ public interface AccountDAO {
 	 * 
 	 * @throws AccountDAOException when a problem occurs during search
 	 */
-	public Account findAccount(int id) throws AccountDAOException;
+	public Account findAccount(int id) throws AccountDAOException, SQLException;
 	
 	
 	
@@ -41,6 +42,6 @@ public interface AccountDAO {
 	 * 
 	 * @throws AccountDAOException thrown when a problem occurs during search
 	 */
-	public boolean insertAccount(String firstName, String lastName, String email) throws AccountDAOException;
+	public boolean insertAccount(String firstName, String lastName, String email) throws AccountDAOException, SQLException;
 	
 }
