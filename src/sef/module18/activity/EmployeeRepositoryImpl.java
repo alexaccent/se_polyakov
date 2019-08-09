@@ -83,7 +83,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 		List<Employee> results = new ArrayList<Employee>();
 		try {
 			PreparedStatement pStmt = conn
-					.prepareStatement("select * from EMPLOYEE where PROF_LEVEL = ? order by ID ASC");
+					.prepareStatement("SELECT * FROM EMPLOYEE WHERE PROF_LEVEL = ? ORDER BY ID ASC");
 			pStmt.setInt(1, profLevel);
 
 			ResultSet rs = pStmt.executeQuery();
@@ -143,7 +143,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 		
 		try {
 			PreparedStatement pStmt = conn
-					.prepareStatement("insert into EMPLOYEE (FIRSTNAME, LASTNAME, PROF_LEVEL) VALUES (?,?,?)");
+					.prepareStatement("INSERT INTO EMPLOYEE (ID, FIRSTNAME, LASTNAME, PROF_LEVEL) VALUES (ACCOUNT_SEQ.NEXTVAL, ?,?,?)");
 
 			pStmt.setString(1, employee.getFirstName());
 			pStmt.setString(2, employee.getLastName());
@@ -189,8 +189,8 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 		
 		try {
 			PreparedStatement pStmt = conn
-					.prepareStatement("update Employee set FIRSTNAME = ?, LASTNAME = ?, " +
-							"PROF_LEVEL = ? where ID = ?");
+					.prepareStatement("UPDATE Employee SET FIRSTNAME = ?, LASTNAME = ?, " +
+							"PROF_LEVEL = ? WHERE ID = ?");
 
 			pStmt.setString(1, employee.getFirstName());
 			pStmt.setString(2, employee.getLastName());

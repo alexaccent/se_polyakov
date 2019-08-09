@@ -23,7 +23,7 @@ public class ProjectRepositoryImpl implements ProjectRepository {
 		Project result = null;
 		try {
 			PreparedStatement pStmt = conn
-					.prepareStatement("select * from Project where ID = ?");
+					.prepareStatement("SELECT * FROM Project WHERE ID = ?");
 			pStmt.setInt(1, id);
 
 			ResultSet rs = pStmt.executeQuery();
